@@ -48,3 +48,13 @@ The workflow of the below project tree is divided into authentication, chat room
         2. The WebSocket receives and broadcasts messages to all connected users in the room.
   ###### Database:
         1. Messages are saved in the Message model with details like sender, room, and timestamp.
+
+### Real-Time Chat
+  ##### Frontend:
+        1. The chat.js script manages WebSocket connections and dynamically updates the chat interface when new messages are received.
+        2. When a user sends a message, it is sent via WebSocket to the server.
+  ##### Backend:
+        1. The WebSocket consumer (chat_app/consumers.py) receives the message and broadcasts it to all other users in the same room.
+        2. It also saves the message in the database for persistence.
+  ##### Database:
+        1. Each message is stored in the Message model, linked to the corresponding ChatRoom and user.
