@@ -116,3 +116,16 @@ The workflow of the below project tree is divided into authentication, chat room
 >> 4. Data such as chat rooms and messages is persistently stored in the database.
 >> 5. Frontend components (HTML/CSS/JS) interact with backend logic for a seamless user experience.
 
+
+## Tech Stack
+
+| Category                | Technology                      | Purpose                                  |
+|-------------------------|----------------------------------|------------------------------------------|
+| **Frontend**            | HTML, CSS, JavaScript          | Structure, styling, and interactivity    |
+| **Backend**             | Django Framework (Python)      | Server-side logic and API handling       |
+| **Real-time Communication** | WebSockets with Django Channels | Real-time chat functionality             |
+| **Database**            | SQLite (or other databases)    | Storing user data, chat rooms, and messages |
+| **Web Server**          | Gunicorn + Nginx               | Hosting Django application and reverse proxy |
+| **Authentication**      | Django Authentication System   | User registration, login, and logout     |
+| **Dependencies**        | Python Libraries (in `requirements.txt`) | Required libraries for project functionality |
+| **Static Files Management** | Django Static Files         | Serving CSS, JavaScript, and images      |
