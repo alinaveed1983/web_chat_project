@@ -117,7 +117,7 @@ The workflow of the below project tree is divided into authentication, chat room
 >> 5. Frontend components (HTML/CSS/JS) interact with backend logic for a seamless user experience.
 
 
-## Tech Stack
+# Tech Stack
 
 | Category                | Technology                      | Purpose                                  |
 |-------------------------|----------------------------------|------------------------------------------|
