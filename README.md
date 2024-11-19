@@ -38,3 +38,13 @@ The workflow of the below project tree is divided into authentication, chat room
         1. The chat_app/views.py fetches all chat rooms from the ChatRoom model and passes the data to the template.
   ##### Database:
         1. The ChatRoom model contains records for each chat room.
+
+### Joining a Chat Room
+  ##### Frontend:
+        1. When a user clicks on a chat room, they are taken to chat_room.html via a route in chat_app/urls.py.
+        2. WebSocket connections are established to enable real-time communication.
+  ##### Backend:
+        1. The chat_app/consumers.py handles WebSocket connections for the chat room.
+        2. The WebSocket receives and broadcasts messages to all connected users in the room.
+  ###### Database:
+        1. Messages are saved in the Message model with details like sender, room, and timestamp.
