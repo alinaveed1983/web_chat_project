@@ -93,26 +93,27 @@ The workflow of the below project tree is divided into authentication, chat room
 
 
 # Database Workflow
-#### User Authentication
+### User Authentication
 >> 1. User credentials are stored in the default User model or a custom model in accounts_app/models.py.
 >> 2. Chat Rooms and Messages
 
-#### ChatRoom model:
+### ChatRoom model:
 >> 1. Stores the name and details of chat rooms.
 
-#### Message model:
+### Message model:
 >> 1. Stores the content, sender, and timestamp of each message.
 >> 2. Messages are linked to a ChatRoom and a User.
 
 # Deployment Workflow
-Static Files
-Collected and served via Nginx or the Django collectstatic command.
-Gunicorn and Nginx
-Gunicorn serves the Django application, and Nginx acts as a reverse proxy to handle HTTP/HTTPS requests and serve static files.
-Summary
-Users authenticate themselves via accounts_app.
-They browse or join chat rooms listed by chat_app.
-Real-time communication in chat rooms is handled via WebSocket connections using Django Channels.
-Data such as chat rooms and messages is persistently stored in the database.
-Frontend components (HTML/CSS/JS) interact with backend logic for a seamless user experience.
+### Static Files
+>> 1. Collected and served via Nginx or the Django collectstatic command.
+>> 2. Gunicorn and Nginx
+>> 3. Gunicorn serves the Django application, and Nginx acts as a reverse proxy to handle HTTP/HTTPS requests and serve static files.
+
+# Summary
+>> 1. Users authenticate themselves via accounts_app.
+>> 2. They browse or join chat rooms listed by chat_app.
+>> 3. Real-time communication in chat rooms is handled via WebSocket connections using Django Channels.
+>> 4. Data such as chat rooms and messages is persistently stored in the database.
+>> 5. Frontend components (HTML/CSS/JS) interact with backend logic for a seamless user experience.
 
