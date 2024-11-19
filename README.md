@@ -20,7 +20,7 @@ The workflow of the below project tree is divided into authentication, chat room
   ### Database:
   1. A new user record is added to the `User` model in the database.
 
-  ## Login/Logout
+## Login/Logout
   ### Login:
   1. The user submits credentials via `login.html` handled by Django's auth views in `accounts_app/views.py`.
   2. On successful authentication, the user is redirected to the homepage (`index.html` in `chat_app`).
