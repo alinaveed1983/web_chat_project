@@ -93,14 +93,16 @@ The workflow of the below project tree is divided into authentication, chat room
 
 
 # Database Workflow
-User Authentication
-User credentials are stored in the default User model or a custom model in accounts_app/models.py.
-Chat Rooms and Messages
-ChatRoom model:
-Stores the name and details of chat rooms.
-Message model:
-Stores the content, sender, and timestamp of each message.
-Messages are linked to a ChatRoom and a User.
+#### User Authentication
+>> 1. User credentials are stored in the default User model or a custom model in accounts_app/models.py.
+>> 2. Chat Rooms and Messages
+
+#### ChatRoom model:
+>> 1. Stores the name and details of chat rooms.
+
+#### Message model:
+>> 1. Stores the content, sender, and timestamp of each message.
+>> 2. Messages are linked to a ChatRoom and a User.
 
 # Deployment Workflow
 Static Files
