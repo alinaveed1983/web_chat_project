@@ -29,3 +29,12 @@ The workflow of the below project tree is divided into authentication, chat room
   1. The user clicks a logout link that routes to the Django logout view.
   2. After logout, the user is redirected to the login page.
 
+
+# Chat Room Workflow
+### Chat Room Listing
+  ##### Frontend:
+        1. The homepage (index.html) displays a list of available chat rooms using a Django template.
+  ##### Backend:
+        1. The chat_app/views.py fetches all chat rooms from the ChatRoom model and passes the data to the template.
+  ##### Database:
+        1. The ChatRoom model contains records for each chat room.
