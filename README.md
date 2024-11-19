@@ -82,4 +82,35 @@ The workflow of the below project tree is divided into authentication, chat room
 >> 4. Disconnection: When the user leaves, the WebSocket connection is closed.
 
 
+# Middleware and Routing
+### HTTP Requests
+>> 1. Middleware processes incoming HTTP requests (e.g., login, logout, page rendering).
+>> 2. Requests are routed via web_chat/urls.py to the respective app (accounts_app or chat_app).
+>> 3. Views in the app handle the request, fetch data from the database, and render the appropriate template.
+### WebSocket Requests
+>> 1. WebSocket connections are routed through web_chat/asgi.py to the chat_app/consumers.py.
+>> 2. Consumers handle WebSocket events (e.g., connect, disconnect, receive message).
+
+
+# Database Workflow
+User Authentication
+User credentials are stored in the default User model or a custom model in accounts_app/models.py.
+Chat Rooms and Messages
+ChatRoom model:
+Stores the name and details of chat rooms.
+Message model:
+Stores the content, sender, and timestamp of each message.
+Messages are linked to a ChatRoom and a User.
+
+# Deployment Workflow
+Static Files
+Collected and served via Nginx or the Django collectstatic command.
+Gunicorn and Nginx
+Gunicorn serves the Django application, and Nginx acts as a reverse proxy to handle HTTP/HTTPS requests and serve static files.
+Summary
+Users authenticate themselves via accounts_app.
+They browse or join chat rooms listed by chat_app.
+Real-time communication in chat rooms is handled via WebSocket connections using Django Channels.
+Data such as chat rooms and messages is persistently stored in the database.
+Frontend components (HTML/CSS/JS) interact with backend logic for a seamless user experience.
 
