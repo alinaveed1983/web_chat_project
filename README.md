@@ -7,7 +7,7 @@ The workflow of the below project tree is divided into authentication, chat room
 
 ![image](https://github.com/user-attachments/assets/f539bb59-6929-4a4a-b757-790eaf1e23f2)
 
-#1. Authentication Workflow
+# 1.Authentication Workflow
   User Registration
     Frontend:
         The user accesses the register.html form from the accounts_app app.
