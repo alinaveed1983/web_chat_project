@@ -30,31 +30,38 @@ The workflow of the below project tree is divided into authentication, chat room
   2. After logout, the user is redirected to the login page.
 
 
+
 # Chat Room Workflow
-### Chat Room Listing
-  ##### Frontend:
-        1. The homepage (index.html) displays a list of available chat rooms using a Django template.
-  ##### Backend:
-        1. The chat_app/views.py fetches all chat rooms from the ChatRoom model and passes the data to the template.
-  ##### Database:
-        1. The ChatRoom model contains records for each chat room.
+## Chat Room Listing
+### Frontend:
+1. The homepage (`index.html`) displays a list of available chat rooms using a Django template.
 
-### Joining a Chat Room
-  ##### Frontend:
-        1. When a user clicks on a chat room, they are taken to chat_room.html via a route in chat_app/urls.py.
-        2. WebSocket connections are established to enable real-time communication.
-  ##### Backend:
-        1. The chat_app/consumers.py handles WebSocket connections for the chat room.
-        2. The WebSocket receives and broadcasts messages to all connected users in the room.
-  ###### Database:
-        1. Messages are saved in the Message model with details like sender, room, and timestamp.
+### Backend:
+1. The `chat_app/views.py` fetches all chat rooms from the `ChatRoom` model and passes the data to the template.
 
-### Real-Time Chat
-  ##### Frontend:
-        1. The chat.js script manages WebSocket connections and dynamically updates the chat interface when new messages are received.
-        2. When a user sends a message, it is sent via WebSocket to the server.
-  ##### Backend:
-        1. The WebSocket consumer (chat_app/consumers.py) receives the message and broadcasts it to all other users in the same room.
-        2. It also saves the message in the database for persistence.
-  ##### Database:
-        1. Each message is stored in the Message model, linked to the corresponding ChatRoom and user.
+### Database:
+1. The `ChatRoom` model contains records for each chat room.
+
+## Joining a Chat Room
+### Frontend:
+1. When a user clicks on a chat room, they are taken to `chat_room.html` via a route in `chat_app/urls.py`.
+2. WebSocket connections are established to enable real-time communication.
+
+### Backend:
+1. The `chat_app/consumers.py` handles WebSocket connections for the chat room.
+2. The WebSocket receives and broadcasts messages to all connected users in the room.
+
+### Database:
+1. Messages are saved in the `Message` model with details like sender, room, and timestamp.
+
+## Real-Time Chat
+### Frontend:
+1. The `chat.js` script manages WebSocket connections and dynamically updates the chat interface when new messages are received.
+2. When a user sends a message, it is sent via WebSocket to the server.
+
+### Backend:
+1. The WebSocket consumer (`chat_app/consumers.py`) receives the message and broadcasts it to all other users in the same room.
+2. It also saves the message in the database for persistence.
+
+### Database:
+1. Each message is stored in the `Message` model, linked to the corresponding `ChatRoom` and user.
