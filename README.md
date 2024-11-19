@@ -65,3 +65,21 @@ The workflow of the below project tree is divided into authentication, chat room
 
 >> #### Database:
 >> 1. Each message is stored in the `Message` model, linked to the corresponding `ChatRoom` and user.
+
+
+# Interaction Between Frontend and Backend
+### Static and Dynamic Content
+>> #### Static Files:
+>> 1. CSS (chat.css, base.css) and JavaScript (chat.js, main.js) files handle the styling and dynamic interactions on the frontend.
+
+>> #### Dynamic Content:
+>> 1. Django templates (index.html, chat_room.html) are populated with data from the backend (e.g., list of chat rooms, messages).
+
+>> #### WebSocket Workflow
+>> 1. WebSocket connections are handled by ASGI (via web_chat/asgi.py) and Django Channels:
+>> 2. Connection: When the user accesses a chat room, a WebSocket connection is established.
+>> 3. Message Exchange: The WebSocket consumer listens for incoming messages and broadcasts them to all users in the room.
+>> 4. Disconnection: When the user leaves, the WebSocket connection is closed.
+
+
+
