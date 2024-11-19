@@ -21,7 +21,6 @@ The workflow of the below project tree is divided into authentication, chat room
 ### Database:
 1. A new user record is added to the `User` model in the database.
 
----
 
 ## Login/Logout
 ### Login:
