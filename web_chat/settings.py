@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chat_app',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -56,3 +57,6 @@ DATABASES = {
 }
 
 STATIC_URL = '/static/'
+
+# Default primary key field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
