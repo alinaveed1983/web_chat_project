@@ -154,7 +154,7 @@ sqlite> pragma table_info(chat_app_message);
 | **Backend**             | Django Framework (Python)      | Server-side logic and API handling       |
 | **Real-time Communication** | WebSockets with Django Channels | Real-time chat functionality             |
 | **Database**            | SQLite (or other databases)    | Storing user data, chat rooms, and messages |
-| **Web Server**          | Gunicorn + Nginx               | Hosting Django application and reverse proxy |
+| **Web Server**          | Daphene + Nginx               | Hosting Django application and reverse proxy |
 | **Authentication**      | Django Authentication System   | User registration, login, and logout     |
 | **Dependencies**        | Python Libraries (in `requirements.txt`) | Required libraries for project functionality |
 | **Static Files Management** | Django Static Files         | Serving CSS, JavaScript, and images      |
