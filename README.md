@@ -5,7 +5,8 @@ Full stack project 2: Web Chat Application project built using Django, HTML, CSS
 The workflow of the below project tree is divided into authentication, chat room functionality, and the interaction between the frontend and backend. Below is the step-by-step explanation of how the different components work together.
 
 
-![image](https://github.com/user-attachments/assets/f539bb59-6929-4a4a-b757-790eaf1e23f2)
+# pre-requisites
+pip install django-extensions Django channels daphne whitenoise
 
 # Authentication Workflow
 ### User Registration
