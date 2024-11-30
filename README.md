@@ -21,7 +21,7 @@ python manage.py createsuperuser
 python manage.py shell
 
 python manage.py runasgi
-http://127.0.0.1:8000/
+http://127.0.0.1:8000/admin
 
 python manage.py show_urls
 
