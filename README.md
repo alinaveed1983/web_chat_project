@@ -6,7 +6,9 @@ The workflow of the below project tree is divided into authentication, chat room
 
 
 # pre-requisites
+```
 pip install django-extensions Django channels daphne whitenoise
+```
 
 # Authentication Workflow
 ### User Registration
