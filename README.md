@@ -22,6 +22,7 @@ python manage.py shell
 
 python manage.py runasgi
 http://127.0.0.1:8000/admin
+-- create users and chatrooms
 
 python manage.py show_urls
 
