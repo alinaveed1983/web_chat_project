@@ -10,6 +10,31 @@ The workflow of the below project tree is divided into authentication, chat room
 pip install django-extensions Django channels daphne whitenoise
 ```
 
+# commands
+```
+python manage.py check
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py collectstatic
+python manage.py createsuperuser
+python manage.py shell
+
+python manage.py runasgi
+http://127.0.0.1:8000/
+
+python manage.py show_urls
+
+
+# DB commands
+python manage.py dbshell
+sqlite> .tables
+sqlite> SELECT * FROM chat_app_chatroom;
+sqlite> SELECT * FROM chat_app_message;
+sqlite> .schema chat_app_message;
+sqlite> pragma table_info(chat_app_message);
+```
+
 # Authentication Workflow
 ### User Registration
 >> ##### Frontend:
