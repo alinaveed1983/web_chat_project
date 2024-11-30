@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Web Chat{% endblock %}</title>
+    
+    <!-- Link to the favicon -->
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+
+    <!-- Main CSS for the application -->
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+    
+    <!-- Additional CSS block for page-specific styles -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>Welcome to Web Chat</h1>
+        {% if user.is_authenticated %}
+            <!-- Display the logged-in user -->
+            <p>Logged in as: {{ user.username }} | <a href="{% url 'logout' %}">Logout</a></p>
+        {% else %}
+            <!-- Provide login and registration links -->
+            <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+        {% endif %}
+    </header>
+    
+    <main>
+        <!-- Page-specific content -->
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <!-- Footer content -->
+        <p>&copy; 2024 Web Chat Application</p>
+    </footer>
+    
+    <!-- Additional JavaScript block for page-specific scripts -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
