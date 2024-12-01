@@ -56,6 +56,30 @@ sqlite> .schema chat_app_message;
 sqlite> pragma table_info(chat_app_message);
 ```
 
+# daphne
+```
+sudo vi /etc/systemd/system/daphne.service
+[Unit]
+Description=Daphne Service for Web Chat Project
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/web_chat_project
+Environment="PATH=/home/ubuntu/web_chat_project/venv/bin"
+ExecStart=/home/ubuntu/web_chat_project/venv/bin/python manage.py runasgi
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl daemon-reload
+sudo systemctl enable daphne
+sudo systemctl start daphne
+sudo systemctl status daphne
+sudo journalctl -u daphne.service -n 50 --no-pager
+```
+
 # Authentication Workflow
 ### User Registration
 >> ##### Frontend:
