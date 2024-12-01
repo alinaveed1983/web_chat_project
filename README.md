@@ -4,6 +4,7 @@ Full stack project 2: Web Chat Application project built using Django, HTML, CSS
 # WorkFlow
 The workflow of the below project tree is divided into authentication, chat room functionality, and the interaction between the frontend and backend. Below is the step-by-step explanation of how the different components work together.
 
+![image](https://github.com/user-attachments/assets/ae95ff29-bf6e-4294-916c-fdde571403a2)
 
 # pre-requisites
 ```
