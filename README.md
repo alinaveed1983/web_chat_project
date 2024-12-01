@@ -7,6 +7,14 @@ The workflow of the below project tree is divided into authentication, chat room
 
 # pre-requisites
 ```
+sudo apt update && sudo apt upgrade -y
+sudo apt install pkg-config libmysqlclient-dev -y
+sudo apt install sqlite3 python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools python3-venv nginx net-tools -y
+git clone https://github.com/alinaveed1983/web_chat_project.git
+cd ~/web_chat_project
+
+python3 -m venv venv
+source venv/bin/activate
 pip install django-extensions Django channels daphne whitenoise
 ```
 
