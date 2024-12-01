@@ -80,6 +80,55 @@ sudo systemctl status daphne
 sudo journalctl -u daphne.service -n 50 --no-pager
 ```
 
+# nginx
+```
+### Nginx configuration for HTTPS
+sudo vi /etc/nginx/sites-available/web_chat
+server {
+    listen 443 ssl;
+    server_name ec2-34-229-193-126.compute-1.amazonaws.com;
+
+    ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+
+    # Proxy requests to Daphne
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # Proxy WebSocket connections
+    location /ws/ {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    # Serve static files
+    location /static/ {
+        alias /home/ubuntu/web_chat_project/staticfiles/;
+        autoindex on; # Optional for debugging
+    }
+}
+
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/web_chat /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl restart nginx
+sudo systemctl status nginx
+sudo tail -n 50 /var/log/nginx/error.log
+
+sudo ss -tuln | grep 443
+sudo netstat -tuln | grep 443
+curl -I https://ec2-34-229-193-126.compute-1.amazonaws.com
+```
+
 # Authentication Workflow
 ### User Registration
 >> ##### Frontend:
