@@ -26,6 +26,18 @@ python manage.py migrate
 
 python manage.py collectstatic
 python manage.py createsuperuser
+sudo usermod -aG www-data ubuntu
+groups ubuntu
+exit
+sudo chown -R ubuntu:www-data /home/ubuntu/web_chat_project
+sudo chmod -R 755 /home/ubuntu/
+
+ls -ld /home
+ls -ld /home/ubuntu
+ls -ld /home/ubuntu/web_chat_project
+
+
+
 python manage.py shell
 
 python manage.py runasgi
