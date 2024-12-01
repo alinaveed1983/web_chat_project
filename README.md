@@ -82,6 +82,29 @@ sudo journalctl -u daphne.service -n 50 --no-pager
 
 # nginx
 ```
+### Generate a Self-Signed Certificate [ test/dev environments ]:
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+    -keyout /etc/ssl/private/nginx-selfsigned.key \
+    -out /etc/ssl/certs/nginx-selfsigned.crt \
+    -subj "/C=US/ST=State/L=City/O=Organization/OU=Unit/CN= ec2-34-229-193-126.compute-1.amazonaws.com" \
+    -addext "subjectAltName=DNS: ec2-34-229-193-126.compute-1.amazonaws.com"
+
+
+### Permissions for nginx to work with static files
+sudo usermod -aG www-data ubuntu
+groups ubuntu
+exit
+sudo chown -R ubuntu:www-data /home/ubuntu/web_chat_project
+sudo chmod -R 755 /home/ubuntu/
+
+ls -ld /home
+ls -ld /home/ubuntu
+ls -ld /home/ubuntu/web_chat_project
+
+
+sudo cp /etc/ssl/certs/nginx-selfsigned.crt /usr/local/share/ca-certificates/
+sudo update-ca-certificates
+
 ### Nginx configuration for HTTPS
 sudo vi /etc/nginx/sites-available/web_chat
 server {
