@@ -8,6 +8,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://ec2-34-229-193-126.compute-1.amazonaws.com',
+    'http://ec2-34-229-193-126.compute-1.amazonaws.com',
+    'https://34.229.193.126',
+    'http://34.229.193.126'
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
