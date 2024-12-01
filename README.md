@@ -29,7 +29,7 @@ python manage.py createsuperuser
 sudo usermod -aG www-data ubuntu
 groups ubuntu
 exit
-sudo chown -R ubuntu:www-data /home/ubuntu/web_chat_project
+sudo chown -R ubuntu:www-data /home/ubuntu/
 sudo chmod -R 755 /home/ubuntu/
 
 ls -ld /home
