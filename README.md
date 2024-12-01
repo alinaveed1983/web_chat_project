@@ -42,10 +42,9 @@ python manage.py shell
 
 python manage.py runasgi
 http://127.0.0.1:8000/admin
+OR
+https://ec2-34-229-193-126.compute-1.amazonaws.com/admin
 -- create users and chatrooms
-
-python manage.py show_urls
-
 
 # DB commands
 python manage.py dbshell
